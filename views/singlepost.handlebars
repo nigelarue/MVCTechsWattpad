@@ -1,0 +1,58 @@
+<div class="posts" id="post-container" style="display:table">
+
+    <article class="card">
+        <div class="card-header flex-row justify-space-between">
+            <h1>{{post.title}}</h1>
+            <div>
+                <p><small>Posted by: {{post.User.username}} on {{format_date post.createdAt}}</small></p>
+            </div>
+        </div>
+        <article class="card-body">
+            <div class="card-content">
+                {{post.body}}
+            </div>
+            <hr>
+            <p><small>&copy; {{post.User.username}}</small></p>
+        </article>
+    </article>
+    <div id="comments-placeholder">
+        {{#if post.Comments}}
+            <div class="comment-header">
+                <h3>Comments</h3>
+            </div>
+
+            <ol class="thread">
+                {{#each post.Comments}}
+                <li class="comment-item" id="commentid" role="article">
+                    <h3 class="heading byline">
+                        {{User.username}}
+                    </h3>
+                    <blockquote>
+                        {{body}}
+                    </blockquote>
+                    <p>
+                        &mdash; {{format_date createdAt}}
+                    </p>
+                </li>
+                {{/each}}
+            </ol>
+        {{/if}}
+
+        <form class="new-comment" id="new-comment-form">
+            <div class="comment-header">
+                <h5>Add Comment</h5>
+            </div>
+            <div class="comment-card">
+                <input type="hidden" name="post-id" value="{{post.id}}" />
+
+                <label class="form-label" for="comment-body">Tell us your thoughts...</label>
+
+                <textarea name="comment-body" class="form-input"></textarea>
+
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/public/js/comment.js"></script>

@@ -1,8 +1,18 @@
-<div id="post-container" style="display:table">
+<div class="posts" id="post-container" style="display:table">
     {{#each posts}}
-        <a class="list-inline flex-row justify-space-between" href="/dashboard/edit/{{id}}">
-            <span>{{title}}</span>
-            <span></span>
-        </a>
+    <article class="card">
+        <div class="card-header flex-row justify-space-between">
+            <h1>
+                <a href="/post/{{id}}">{{title}}</a>
+            </h1>
+        </div>
+        <article class="card-body">
+            <div class="card-content">
+                {{body}}
+            </div>
+            <hr>
+            <p><small>&copy; {{post.User.username}}</small></p>
+        </article>
+    </article>
     {{/each}}
 </div>
