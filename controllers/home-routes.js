@@ -2,15 +2,22 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models/');
 
 // get all posts for home
-router.get('/', async (req, res) => {
+router.get('/', async (_req, res) => {
     try {
         const allPosts = await Post.findAll({
-            include: [User],
+            include: [
+                {
+                    model: User,
+                },
+            ],
         });
 
         const posts = allPosts.map((post) => post.get({ plain: true }));
 
-        res.render('posts', { posts });
+        res.render('posts', {
+            layout: 'dashboard',
+            posts,
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -31,9 +38,12 @@ router.get('/post/:id', async (req, res) => {
         if (allPosts) {
             const post = allPosts.get({ plain: true });
 
-            res.render('singlepost', { post });
+            res.render('singlepost', {
+                layout: 'dashboard',
+                post,
+            });
         } else {
-            res.status(404).end();
+         res.status(404).end();
         }
     } catch (err) {
         res.status(500).json(err);

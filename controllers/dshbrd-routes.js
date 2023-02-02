@@ -24,7 +24,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // pull handlebars for new posts and the dashboard layout
-router.get('/new', withAuth, (req, res) => {
+router.get('/new', withAuth, async (req, res) => {
     res.render('newpost', {
         layout: 'dashboard',
     });

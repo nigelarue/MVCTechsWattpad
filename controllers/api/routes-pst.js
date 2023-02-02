@@ -3,10 +3,13 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
-    const body = req.body;
     try {
-        const routeNewPost = await Post.create({ ...body, userId: req.session.userId });
-        res.json(routeNewPost);
+        const routeNewPost = await Post.create({
+            ...req.body,
+            userId: req.session.userId,
+        });
+
+        res.status(200).json(routeNewPost);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -19,6 +22,7 @@ router.put('/:id', withAuth, async (req, res) => {
                 id: req.params.id,
             },
         });
+
         if (affectedRows > 0) {
             res.status(200).end();
         } else {
@@ -36,6 +40,7 @@ router.delete('/:id', withAuth, async (req, res) => {
                 id: req.params.id,
             },
         });
+        
         if (affectedRows > 0) {
             res.status(200).end();
         } else {

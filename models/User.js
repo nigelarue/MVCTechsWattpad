@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/config');
-const { update } = require('./Post');
+// const { update } = require('./Post');
 
 // create User model
 class User extends Model {
@@ -29,7 +29,7 @@ User.init(
             validate: {
                 len: [8]
             }
-        }
+        },
     },
     {
         hooks: {
@@ -45,7 +45,8 @@ User.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        modelName: 'User'
+        underscored: true,
+        modelName: 'User',
     }
 );
 
