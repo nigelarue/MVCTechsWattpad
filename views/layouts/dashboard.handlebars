@@ -8,26 +8,28 @@
 
 </head>
 <body class="flex-column min-100-vh">
- <nav class="navbar">
-  <ul>
-   <li class="li-inline nav-lnk"><a href="/">Home</a></li>
-   <li class="li-inline nav-lnk"><a href="/">Dashboard</a></li>
-   <li class="li-inline nav-lnk"><a href="/">Logout</a></li>
-  </ul>
- </nav>
- <header class="hero">
-  <h1 class="titleh1"><a href="">The Coder's Wattpad</a></h1>
- </header>
+    <div id="header-container" style="display:table">
+        <div role="banner" id="header" style="display: table;">
+            <nav class="navbar">
+                <ul class="list-inline">
+                    <h4 class="header-item-logo">The Coder's Wattpad</h4>
+                    <li class="header-item-logo"><a href="/">Home</a></li>
+                    <li class="li-inline nav-lnk"><a href="/dashboard">Dashboard</a></li>
+                    <li class="li-inline nav-lnk"><a href="#" id="logout-link">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
  <div class="main-content col-auto">
   {{{body}}}
  </div>
 
  <footer class="footer flex-row justify-center">
-  <a href="">Write New Post</a>
+  <a href="/dashboard/new">Write New Post</a>
  </footer>
  
 </body>
 {{!-- logout source js file --}}
-<script src=""></script>
+<script src="/public/js/logout.js"></script>
 </html>
