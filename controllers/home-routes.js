@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models/');
-const { post, all } = require('./api');
 
 // get all posts for home
 router.get('/', async (req, res) => {
@@ -11,7 +10,7 @@ router.get('/', async (req, res) => {
 
         const posts = allPosts.map((post) => post.get({ plain: true }));
 
-        res.render('all-posts', { posts });
+        res.render('posts', { posts });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -32,7 +31,7 @@ router.get('/post/:id', async (req, res) => {
         if (allPosts) {
             const post = allPosts.get({ plain: true });
 
-            res.render('single-post', { post });
+            res.render('singlepost', { post });
         } else {
             res.status(404).end();
         }
