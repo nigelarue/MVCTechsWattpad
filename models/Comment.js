@@ -18,9 +18,10 @@ Comment.init(
     postId: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'Post',
-            key: 'id',
+            model: "Post",
+            key: "id",
         },
+        onDelete: "CASCADE"
     },
   },
   {
@@ -28,7 +29,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Comment',
+    modelName: "Comment",
   }
 );
 
