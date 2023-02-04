@@ -32,20 +32,25 @@ router.get("/new", withAuth, async (req, res) => {
 // get edit post handlebars
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
-    const allPosts = await Post.findByPk(req.params.id);
+    const post = await Post.findByPk(req.params.id, {
+      include: [{
+        model: Post,
+        required: false,
+        attributes: ["body", "title"]
+      }],
+    });
 
-    if (allPosts) {
-      const post = allPosts.get({ plain: true });
-
+    if (post) {
       res.render("editpost", {
         layout: "dashboard",
-        post,
+        post: post.get({ plain: true }),
       });
     } else {
       res.status(404).end();
     }
   } catch (err) {
-    res.redirect("login");
+    res.status(500).json(err);
+    // res.redirect("login");
   }
 });
 

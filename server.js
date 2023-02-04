@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-const helpers = require("./utils/helpers");
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,7 +32,6 @@ app.use(session(sess));
 const hbs = exphbs.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
-  helpers: helpers
 });
 
 // Inform Express.js on which template engine to use
