@@ -5,26 +5,26 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Coding Wattpad</title>
-
+ <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body class="flex-column min-100-vh">
-    <div id="header-container" style="display:table">
-        <div role="banner" id="header" style="display: table;">
+ <div id="header-container" style="display:table">
+        <div role="banner" id="header" style="display:inline;">
             <nav class="navbar">
                 <ul class="list-inline">
-                    <h4 class="header-item-logo">The Coder's Wattpad</h4>
-                    <li class="header-item-logo"><a href="/">Home</a></li>
+                    <h4 class="header-item-logo rainbow-glitter">The Coder's Wattpad</h4>
+                    <li class="li-inline nav-link"><a href="/">Home</a></li>
                     <li class="li-inline nav-lnk"><a href="/dashboard">Dashboard</a></li>
                     <li class="li-inline nav-link"><a href="/login">Login</a></li>
-                    <li class="li-inline nav-lnk"><a href="#" id="logout-link">Logout</a></li>
+                    <li class="li-inline nav-link"><a href="#" id="logout-link">Logout</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
-
- <div class="main-content col-auto">
-  {{{body}}}
  </div>
+
+ <main class="col-auto">
+  {{{body}}}
+ </main>
 
  <footer class="footer flex-row justify-center">
   <p>&copy; {{year}} {{author}}</p>
