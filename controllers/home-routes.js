@@ -5,7 +5,14 @@ const { Post, Comment, User } = require("../models/");
 router.get("/", async (_req, res) => {
   try {
     const allPosts = await Post.findAll({
-      include: [User],
+      include: [{ model: User }, { model: Post }],
+      attributes: {
+        include: [
+          [
+            
+          ]
+        ]
+      }
     });
 
     const posts = allPosts.map((post) => post.get({ plain: true }));
@@ -23,13 +30,8 @@ router.get("/", async (_req, res) => {
 router.get("/post/:id", async (req, res) => {
   try {
     const allPosts = await Post.findByPk(req.params.id, {
-      include: [
-        User,
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
+      include: [{ model: Comment, through: User,
+      as: "post_comments"}]
     });
     if (allPosts) {
       const post = allPosts.get({ plain: true });

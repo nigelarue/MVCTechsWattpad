@@ -9,19 +9,26 @@ Comment.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,  
+        autoIncrement: true
     },
     body: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
+        unique: false
+      }
     },
     postId: {
         type: DataTypes.INTEGER,
         references: {
             model: "Post",
-            key: "id",
-        },
-        onDelete: "CASCADE"
+            key: "id"
+        }
     },
   },
   {
@@ -29,7 +36,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Comment",
+    modelName: "Comment"
   }
 );
 
