@@ -47,7 +47,6 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-
 router.get("/", async (_req, res) => {
   try {
     const allPosts = await Post.findAll({
