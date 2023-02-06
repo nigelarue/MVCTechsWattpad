@@ -4,30 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testing"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coding-boot-camp/module-14-project-mvc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coding-boot-camp/module-14-project-mvc/issues"
+  },
+  "homepage": "https://github.com/coding-boot-camp/module-14-project-mvc#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "bootstrap": "^5.2.3",
-    "connect-session-sequelize": "^7.1.5",
-    "console.table": "^0.10.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-handlebars": "^6.0.7",
-    "express-session": "^1.17.3",
-    "mysql2": "^3.1.0",
-    "sequelize": "^6.28.0"
+    "bcrypt": "^4.0.1",
+    "connect-session-sequelize": "^6.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "mysql2": "^2.0.1",
+    "sequelize": "^5.22.5"
   },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.50.0",
-    "eslint": "^8.33.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-config-standard-with-typescript": "^34.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "prettier": "^2.8.3",
-    "typescript": "^4.9.5"
-  }
+  "devDependencies": {},
+  "description": ""
 }
